@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 31
+    defaultConfig {
+        applicationId "com.codingwithvedang.musafir"
+        minSdkVersion 26
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        multiDexEnabled true
+        ndk {
+            //Note: Apparantly AR is only supported by some types of CPUs. x86 refers to intel processors
+            //arm64-v8a refers to 64 bit ARM processors found in most phones. ARM processors are generally found
+            //in phones
+            abiFilters 'arm64-v8a', 'x86'
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'com.google.ar:core:1.30.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //Android Support Design Library
+    implementation 'com.google.android.material:material:1.5.0'
+    //RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    // Support multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+    // Firebase Core
+    implementation 'com.google.firebase:firebase-core:20.1.2'
+    //Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth:21.0.3'
+    // Firestore Firestore
+    implementation 'com.google.firebase:firebase-firestore:24.1.0'
+    //Google Play Services for Maps
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+
+    // Google play services for location information
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    // Maps utils (required for custom markers)
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
+
+    // Google Maps Services (needed for directions)
+    implementation 'com.google.maps:google-maps-services:2.0.0'
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3'
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-turf:3.2.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.5.3'
+
+    //Note: Add ARCore
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    //implementation 'com.google.ar:core:1.2.0'
+    //Add: Sceneform framework - these libraries enable you to easily place objects in 3D
+    implementation "com.google.ar.sceneform:core:1.17.1"
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.17.1"
+    implementation "com.google.ar.sceneform:animation:1.17.1"
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    // For developers using AndroidX in their applications
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
+    // For developers using the Android Support Library
+    implementation 'pub.devrel:easypermissions:2.0.1'
+
+    // Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+}
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.ar.sceneform.plugin'
+//WARNING: THE IMPORTER IS BUGGY... RERUN IF IT ERRORS
+sceneform.asset('sampledata/models/test.obj',
+        'default',
+        'sampledata/models/test.sfa',
+        'src/main/res/raw/test')
+
+sceneform.asset('sampledata/models/model.obj',
+        'default',
+        'sampledata/models/model.sfa',
+        'src/main/res/raw/model')
+

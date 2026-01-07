@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "659477236883",
+    "firebase_url": "https://naya-project-a76bc-default-rtdb.firebaseio.com",
+    "project_id": "naya-project-a76bc",
+    "storage_bucket": "naya-project-a76bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659477236883:android:1318075dd6c8e191a49166",
+        "android_client_info": {
+          "package_name": "com.codingwithvedang.musafir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659477236883-b4uued21cgql3cbtii5bl73k75qgctv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxpg2G2LNhPLTNmR8El8tZ_GKO9sWRCR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659477236883-b4uued21cgql3cbtii5bl73k75qgctv6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
